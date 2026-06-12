@@ -1,4 +1,4 @@
-# Weather App
+# Weather App 
 
 My first full-stack web development project built using FastAPI.
 
