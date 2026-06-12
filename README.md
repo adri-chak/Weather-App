@@ -7,5 +7,5 @@ My first full-stack web development project built using FastAPI.
 - Learn FastAPI
 - Learn frontend basics
 - Learn deployment 
-
+ 
 Project currently under development.
