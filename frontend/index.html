@@ -9,73 +9,75 @@
 
 <body>
 
-    <h1>Weather App</h1>
+    <div class="container">
 
-    <input
-        type="text"
-        id="city"
-        placeholder="Enter city">
+        <h1>🌦️ Weather App</h1>
 
-    <button onclick="getWeather()">
-        Search
-    </button>
+        <input
+            type="text"
+            id="city"
+            placeholder="Enter city">
 
-    <br><br>
+        <button onclick="getWeather()">
+            Search
+        </button>
 
-    <div id="result"></div>
+        <div id="result"></div>
+
+    </div>
 
     <script>
 
         function getWeatherCondition(code) {
 
-    if (code === 0) {
-        return {
-            icon: "☀️",
-            text: "Clear Sky"
-        };
-    }
+            if (code === 0) {
+                return {
+                    icon: "☀️",
+                    text: "Clear Sky"
+                };
+            }
 
-    if ([1, 2, 3].includes(code)) {
-        return {
-            icon: "☁️",
-            text: "Cloudy"
-        };
-    }
+            if ([1, 2, 3].includes(code)) {
+                return {
+                    icon: "☁️",
+                    text: "Cloudy"
+                };
+            }
 
-    if ([45, 48].includes(code)) {
-        return {
-            icon: "🌫️",
-            text: "Fog"
-        };
-    }
+            if ([45, 48].includes(code)) {
+                return {
+                    icon: "🌫️",
+                    text: "Fog"
+                };
+            }
 
-    if ((code >= 51 && code <= 67) ||
-        (code >= 80 && code <= 82)) {
-        return {
-            icon: "🌧️",
-            text: "Rain"
-        };
-    }
+            if ((code >= 51 && code <= 67) ||
+                (code >= 80 && code <= 82)) {
+                return {
+                    icon: "🌧️",
+                    text: "Rain"
+                };
+            }
 
-    if (code >= 71 && code <= 77) {
-        return {
-            icon: "❄️",
-            text: "Snow"
-        };
-    }
+            if (code >= 71 && code <= 77) {
+                return {
+                    icon: "❄️",
+                    text: "Snow"
+                };
+            }
 
-    if (code >= 95) {
-        return {
-            icon: "⛈️",
-            text: "Thunderstorm"
-        };
-    }
+            if (code >= 95) {
+                return {
+                    icon: "⛈️",
+                    text: "Thunderstorm"
+                };
+            }
 
-    return {
-        icon: "🌦️",
-        text: `Weather Code ${code}`
-    };
-}
+            return {
+                icon: "🌦️",
+                text: `Weather Code ${code}`
+            };
+        }
 
         async function getWeather() {
 
@@ -86,19 +88,28 @@
             );
 
             let data = await response.json();
-            console.log(data);
 
             let condition = getWeatherCondition(data.weather_code);
 
             document.getElementById("result").innerHTML =
             `
-            <h2>${condition.icon} ${data.city}</h2>
+                <div class="weather-card">
 
-            <p>Temperature: ${data.temperature}</p>
+                    <div class="weather-icon">
+                        ${condition.icon}
+                    </div>
 
-            <p>Wind Speed: ${data.wind_speed}</p>
+                    <h2>${data.city}</h2>
 
-            <p>Condition: ${condition.text}</p>
+                    <div class="temp">
+                        ${data.temperature}
+                    </div>
+
+                    <p>💨 Wind Speed: ${data.wind_speed}</p>
+
+                    <p>🌤️ ${condition.text}</p>
+
+                </div>
             `;
         }
 

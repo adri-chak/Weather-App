@@ -1,74 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
 
-    background-color: #f4f4f4;
+    background: linear-gradient(
+        135deg,
+        #1e3c72,
+        #2a5298,
+        #4facfe
+    );
 }
 
 .container {
-    background: white;
+    width: 420px;
+    min-height: auto;
 
-    width: 350px;
+    background: rgba(255, 255, 255, 0.15);
 
-    padding: 30px;
+    backdrop-filter: blur(15px);
 
-    border-radius: 12px;
+    border-radius: 25px;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
 
     text-align: center;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    transition: all 0.3s ease;
 }
 
 h1 {
-    margin-bottom: 20px;
+    color: white;
+
+    margin-bottom: 25px;
+
+    font-size: 2rem;
+
+    letter-spacing: 1px;
 }
 
 input {
-    padding: 10px;
+    width: 100%;
 
-    width: 70%;
-
-    border: 1px solid #ccc;
-
-    border-radius: 6px;
-
-    font-size: 16px;
-}
-
-button {
-    padding: 10px 15px;
+    padding: 14px;
 
     border: none;
 
-    border-radius: 6px;
+    border-radius: 12px;
 
-    background-color: #007bff;
+    font-size: 16px;
 
-    color: white;
+    outline: none;
+
+    margin-bottom: 15px;
+
+    background: rgba(255,255,255,0.9);
+}
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: bold;
 
     cursor: pointer;
 
-    font-size: 16px;
+    background: #007bff;
+
+    color: white;
+
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    transform: translateY(-2px);
+
+    background: #0056d2;
+
+    box-shadow:
+        0 5px 15px rgba(0,123,255,0.5);
 }
 
 #result {
-    margin-top: 20px;
+    margin-top: 25px;
+
+    color: white;
 }
 
 #result h2 {
-    margin-bottom: 10px;
+    font-size: 2rem;
+
+    margin-bottom: 15px;
 }
 
 #result p {
-    margin: 8px 0;
+    margin: 10px 0;
+
+    font-size: 1.1rem;
+}
+
+.weather-card {
+    margin-top: 25px;
+}
+
+.weather-icon {
+    font-size: 90px;
+    margin-bottom: 5px;
+}
+
+.temp {
+    font-size: 58px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.3);
 }
