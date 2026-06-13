@@ -26,9 +26,11 @@ def greet(name: str):
 @app.get("/weather")
 def weather(city: str):
 
+    weather_info = get_temperature(city)
+
     return {
         "city": city,
-        "temperature": get_temperature(city)
+        **weather_info
     }
 
 @app.get("/test")

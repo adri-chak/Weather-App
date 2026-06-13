@@ -24,6 +24,35 @@
 
     <script>
 
+        function getWeatherCondition(code) {
+
+    if (code === 0) {
+        return {
+            icon: "☀️",
+            text: "Clear Sky"
+        };
+    }
+
+    if (code <= 3) {
+        return {
+            icon: "☁️",
+            text: "Cloudy"
+        };
+    }
+
+    if (code <= 67) {
+        return {
+            icon: "🌧️",
+            text: "Rain"
+        };
+    }
+
+    return {
+        icon: "🌦️",
+        text: "Unknown"
+    };
+}
+
         async function getWeather() {
 
             let city = document.getElementById("city").value;
@@ -34,11 +63,18 @@
 
             let data = await response.json();
 
+            let condition = getWeatherCondition(data.weather_code);
+
             document.getElementById("result").innerHTML =
-                `
-                <h3>City: ${data.city}</h3>
-                <h3>Temperature: ${data.temperature}</h3>
-                `;
+            `
+            <h2>${condition.icon} ${data.city}</h2>
+
+            <p>Temperature: ${data.temperature}</p>
+
+            <p>Wind Speed: ${data.wind_speed}</p>
+
+            <p>Condition: ${condition.text}</p>
+            `;
         }
 
     </script>
