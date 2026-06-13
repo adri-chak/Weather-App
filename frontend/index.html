@@ -33,23 +33,45 @@
         };
     }
 
-    if (code <= 3) {
+    if ([1, 2, 3].includes(code)) {
         return {
             icon: "☁️",
             text: "Cloudy"
         };
     }
 
-    if (code <= 67) {
+    if ([45, 48].includes(code)) {
+        return {
+            icon: "🌫️",
+            text: "Fog"
+        };
+    }
+
+    if ((code >= 51 && code <= 67) ||
+        (code >= 80 && code <= 82)) {
         return {
             icon: "🌧️",
             text: "Rain"
         };
     }
 
+    if (code >= 71 && code <= 77) {
+        return {
+            icon: "❄️",
+            text: "Snow"
+        };
+    }
+
+    if (code >= 95) {
+        return {
+            icon: "⛈️",
+            text: "Thunderstorm"
+        };
+    }
+
     return {
         icon: "🌦️",
-        text: "Unknown"
+        text: `Weather Code ${code}`
     };
 }
 
@@ -62,6 +84,7 @@
             );
 
             let data = await response.json();
+            console.log(data);
 
             let condition = getWeatherCondition(data.weather_code);
 
