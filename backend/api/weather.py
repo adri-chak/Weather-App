@@ -1,10 +1,32 @@
+import requests
+
+
 def get_temperature(city):
 
-    weather_data = {
-        "Kolkata": "32°C",
-        "Delhi": "38°C",
-        "Mumbai": "30°C",
-        "Bangalore": "27°C"
-    }
+    geo_url = (
+        f"https://geocoding-api.open-meteo.com/v1/search?name={city}&count=1"
+    )
 
-    return weather_data.get(city, "Data Not Available")
+    geo_response = requests.get(geo_url)
+
+    geo_data = geo_response.json()
+
+    if "results" not in geo_data:
+        return "City Not Found"
+
+    latitude = geo_data["results"][0]["latitude"]
+    longitude = geo_data["results"][0]["longitude"]
+
+    weather_url = (
+        f"https://api.open-meteo.com/v1/forecast?"
+        f"latitude={latitude}&longitude={longitude}"
+        f"&current=temperature_2m"
+    )
+
+    weather_response = requests.get(weather_url)
+
+    weather_data = weather_response.json()
+
+    temperature = weather_data["current"]["temperature_2m"]
+
+    return f"{temperature}°C"
