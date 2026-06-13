@@ -18,14 +18,27 @@
         Search
     </button>
 
+    <br><br>
+
     <div id="result"></div>
 
     <script>
 
-        function getWeather() {
-        let city = document.getElementById("city").value;
+        async function getWeather() {
 
-        alert(city);
+            let city = document.getElementById("city").value;
+
+            let response = await fetch(
+                `http://127.0.0.1:8000/weather?city=${city}`
+            );
+
+            let data = await response.json();
+
+            document.getElementById("result").innerHTML =
+                `
+                <h3>City: ${data.city}</h3>
+                <h3>Temperature: ${data.temperature}</h3>
+                `;
         }
 
     </script>
