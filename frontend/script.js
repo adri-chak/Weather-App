@@ -70,7 +70,7 @@ function getWeatherCondition(code) {
             `;
 
             let response = await fetch(
-                `http://127.0.0.1:8000/weather?city=${city}`
+                `https://weather-app-c5gk.onrender.com/weather?city=${city}`
             );
 
             let data = await response.json();
