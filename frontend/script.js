@@ -1,3 +1,4 @@
+console.log("script.js connected");
 function getWeatherCondition(code) {
 
             if (code === 0) {
@@ -51,7 +52,21 @@ function getWeatherCondition(code) {
 
         async function getWeather() {
 
+            try { 
+
             let city = document.getElementById("city").value;
+
+            if (city.trim() === "") {
+
+                alert("Please enter a city name");
+
+                return;
+            }
+
+            document.getElementById("result").innerHTML =
+            `
+            <p>Loading weather data...</p>
+            `;
 
             let response = await fetch(
                 `http://127.0.0.1:8000/weather?city=${city}`
@@ -81,4 +96,25 @@ function getWeatherCondition(code) {
 
                 </div>
             `;
+                }
+
+                catch(error) {
+
+                    document.getElementById("result").innerHTML =
+                    `
+                    <p>❌ Something went wrong.</p>
+                    `;
+
+                    console.error(error);
+    }
         }
+        document
+    .getElementById("city")
+    .addEventListener("keypress", function(event) {
+
+        if (event.key === "Enter") {
+
+            getWeather();
+
+        }
+    });
