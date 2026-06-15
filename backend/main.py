@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import requests
-from backend.api.weather import get_temperature
+from api.weather import get_temperature
 
 app = FastAPI()
 
