@@ -65,6 +65,7 @@ function getWeatherCondition(code) {
 
             document.getElementById("result").innerHTML =
             `
+            <div class="loader"></div>
             <p>Loading weather data...</p>
             `;
 
