@@ -76,6 +76,39 @@ function getWeatherCondition(code) {
             let data = await response.json();
 
             let condition = getWeatherCondition(data.weather_code);
+            let container = document.getElementById("container");
+            container.className = "container";
+
+            if (condition.text === "Clear Sky") {
+
+                container.classList.add("sunny");
+
+            }
+            if (condition.text === "Cloudy") {
+
+                container.classList.add("cloudy");
+
+            }
+            if (condition.text === "Rain") {
+
+                container.classList.add("rainy");
+
+            }
+            if (condition.text === "Thunderstorm") {
+
+                container.classList.add("storm");
+
+            }
+            if (condition.text === "Snow") {
+
+                container.classList.add("snowy");
+
+            }
+            if (condition.text === "Fog") {
+
+                container.classList.add("foggy");
+
+            }
 
             document.getElementById("result").innerHTML =
             `
