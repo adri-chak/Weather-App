@@ -1,69 +1,89 @@
 # 🌦️ Weather App
 
-A full-stack weather application built using FastAPI, HTML, CSS, and JavaScript.
+A modern full-stack Weather Application that provides real-time weather information for cities around the world.
 
-This project fetches real-time weather data from the Open-Meteo API and displays it in a modern weather dashboard.
+## 🚀 Live Demo
+
+🌐 Frontend: https://weather-app-wine-eight-79.vercel.app/
+
+⚙️ Backend API: https://weather-app-c5gk.onrender.com
 
 ---
 
-## 🚀 Features
+## 📸 Project Screenshot
 
-- Search weather by city name
-- Real-time weather data
-- Temperature display
-- Wind speed display
-- Weather condition detection
-- Dynamic weather icons
-- FastAPI REST API backend
-- JavaScript Fetch API integration
-- Modern glassmorphism UI
-- Responsive weather dashboard
+![Weather App Screenshot](screenshot/weather-app.png)
+
+---
+
+## ✨ Features
+
+- 🔍 Search weather by city name
+- 🌡️ Real-time temperature data
+- 💨 Wind speed information
+- 🌤️ Weather condition detection
+- 🎨 Dynamic weather-based themes
+  - ☀️ Sunny
+  - ☁️ Cloudy
+  - 🌧️ Rainy
+  - ⛈️ Thunderstorm
+  - ❄️ Snowy
+  - 🌫️ Foggy
+- ⌨️ Search using Enter key
+- ⏳ Loading spinner
+- ❌ Error handling
+- 📱 Responsive UI
+- 🌐 Live deployment
 
 ---
 
 ## 🛠️ Tech Stack
 
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Fetch API
+
 ### Backend
+
 - FastAPI
 - Python
-- Uvicorn
+- Requests
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
+### APIs
 
-### External APIs
+- Open-Meteo API
 - Open-Meteo Geocoding API
-- Open-Meteo Weather Forecast API
+
+### Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
+- GitHub
 
 ---
 
 ## 📂 Project Structure
 
-Weather-App/
-
-├── backend/
-
-│ ├── main.py
-
-│ └── weather.py
-
+```text
+Weather App
 │
-
-├── frontend/
-
-│ ├── index.html
-
-│ └── style.css
-
+├── backend
+│   ├── main.py
+│   └── api
+│       └── weather.py
 │
-
+├── frontend
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
 ├── requirements.txt
-
-├── .gitignore
-
-└── README.md
+├── README.md
+└── .gitignore
+```
 
 ---
 
@@ -96,29 +116,20 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
----
-
-## ▶️ Run Backend
+### Run Backend
 
 ```bash
-uvicorn backend.main:app --reload
+cd backend
+uvicorn main:app --reload
 ```
 
-Backend runs on:
+Backend runs at:
 
 ```text
 http://127.0.0.1:8000
 ```
 
-Swagger Docs:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
----
-
-## ▶️ Run Frontend
+### Run Frontend
 
 Open:
 
@@ -130,44 +141,79 @@ or use VS Code Live Server.
 
 ---
 
-## 📸 Current Screenshots
+## 📡 API Endpoints
 
-- Weather search interface
-- Real-time weather results
-- Glassmorphism weather card
-- Dynamic weather condition icons
+### Home
 
----
+```http
+GET /
+```
 
-## 📚 Concepts Learned
+Response:
 
-- REST APIs
-- FastAPI Routing
-- Query Parameters
-- JSON Responses
-- Async Functions
-- Fetch API
-- CORS
-- DOM Manipulation
-- CSS Styling
-- Git & GitHub Workflow
+```json
+{
+  "message": "Hello Weather App"
+}
+```
 
 ---
 
-## 🚧 Upcoming Improvements
+### Weather
 
-- Separate JavaScript file
-- Loading animation
-- Error handling
-- Weather-based themes
-- Mobile responsiveness
-- Vercel deployment
-- Public FastAPI deployment
+```http
+GET /weather?city=Kolkata
+```
+
+Response:
+
+```json
+{
+  "city": "Kolkata",
+  "temperature": "27.4°C",
+  "wind_speed": "6.8 km/h",
+  "weather_code": 95
+}
+```
 
 ---
 
-## 👩‍💻 Author
+## 🎯 Learning Outcomes
 
-Adrija Chakraborty
+This project helped me learn:
 
-B.Tech Engineering Student
+- FastAPI fundamentals
+- REST API development
+- API integration
+- Frontend–Backend communication
+- CORS handling
+- JavaScript Fetch API
+- Async programming
+- Deployment with Render
+- Deployment with Vercel
+- Git & GitHub workflow
+
+---
+
+## 🔮 Future Improvements
+
+- Humidity information
+- 7-day forecast
+- Air Quality Index (AQI)
+- Weather charts
+- Geolocation support
+- Dark/Light mode
+- Search history
+- Weather icons API
+
+---
+
+## 👨‍💻 Author
+
+**Adrija Chakraborty**
+
+GitHub: https://github.com/adri-chak
+
+---
+
+⭐ If you like this project, consider giving it a star!
